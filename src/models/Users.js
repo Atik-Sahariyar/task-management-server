@@ -9,7 +9,7 @@ const UsersSchema = new Schema({
         type: String,
         required: true
     },
-    photo:{
+    profilePic:{
         type: String
     },
     password:{

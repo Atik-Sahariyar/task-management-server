@@ -3,6 +3,6 @@ const createNewUserController = require('../../controller/users/createNewUserCon
 const creatNewUserRoute = express.Router();
 
 
-creatNewUserRoute.post('/users', createNewUserController);
+creatNewUserRoute.post('/api/users', createNewUserController);
 
 module.exports = creatNewUserRoute;

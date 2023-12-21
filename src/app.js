@@ -4,14 +4,26 @@ const app  = express();
 const applyMiddleware = require('./middleware/applyMiddleware')
 const globalErrorHandler = require("./utils/globalErrorHandler");
 const creatNewUserRoute = require("./routes/users/createNewUserRoute");
+const createNewTaskRoute = require("./routes/tasks/createNewTask");
+const getToDoTasksRoute = require("./routes/tasks/getToDoTasksRoute");
+const getOngoingTasksRoute = require("./routes/tasks/getOngoingTasksRoute");
+const getCompletedTasksRoute = require("./routes/tasks/getCompletedTasksRoute");
+const updateTaskRoute = require("./routes/tasks/updateTask");
 
 
 //middileare
 applyMiddleware(app);
 
-// users related api rutes
+// users related api routes
 app.use(creatNewUserRoute);
 
+
+// tasks related api routes
+app.use(createNewTaskRoute);
+app.use(getToDoTasksRoute);
+app.use(getOngoingTasksRoute);
+app.use(getCompletedTasksRoute);
+app.use(updateTaskRoute);
 
 
 
