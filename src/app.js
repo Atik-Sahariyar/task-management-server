@@ -8,7 +8,11 @@ const createNewTaskRoute = require("./routes/tasks/createNewTask");
 const getToDoTasksRoute = require("./routes/tasks/getToDoTasksRoute");
 const getOngoingTasksRoute = require("./routes/tasks/getOngoingTasksRoute");
 const getCompletedTasksRoute = require("./routes/tasks/getCompletedTasksRoute");
-const updateTaskRoute = require("./routes/tasks/updateTask");
+const deleteTaskRoute = require("./routes/tasks/deleteTaskRoute");
+const getOneTaskRoute = require("./routes/tasks/getOneTaskRoute");
+const updateTaskStatus = require("./routes/tasks/updateTask");
+const updateTaskRoute = require("./routes/tasks/updateTaskRoute");
+const getMyTasksRoute = require("./routes/tasks/getMyTasksRoute");
 
 
 //middileare
@@ -23,7 +27,11 @@ app.use(createNewTaskRoute);
 app.use(getToDoTasksRoute);
 app.use(getOngoingTasksRoute);
 app.use(getCompletedTasksRoute);
+app.use(updateTaskStatus);
+app.use(deleteTaskRoute);
+app.use(getOneTaskRoute);
 app.use(updateTaskRoute);
+app.use(getMyTasksRoute);
 
 
 

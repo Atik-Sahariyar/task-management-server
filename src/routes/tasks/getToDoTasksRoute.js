@@ -4,7 +4,7 @@ const getToDoTasksRoute = express.Router();
 
 getToDoTasksRoute.get("/api/tasks/todo", async (req, res) => {
   try {
-    const filter = { status: 'ToDo'};
+    const filter = { status: 'todo'};
     const result = await Tasks.find(filter);
     res.send(result);
   } catch (error) {

@@ -1,20 +1,23 @@
 const express = require("express");
 const Tasks = require("../../models/tasks");
 const mongoose = require('mongoose');
-const updateTaskStatus = express.Router();
+const updateTaskRoute = express.Router();
 
-updateTaskStatus.patch("/api/tasks/:id", async (req, res) => {
+updateTaskRoute.patch("/api/tasks/update/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const task = req.body;
-    const newStatus = task.status;
     const query = { _id: new mongoose.Types.ObjectId(id) };
     const updateDoc = {
       $set: {
-        status: newStatus,
+        title: task.title,
+        description: task.description,
+        deadline: task.deadline,
+        priority: task.priority,
       },
     };
     const result = await Tasks.updateOne(query, updateDoc);
+    
     res.send(result);
   } catch (error) {
     console.error("Error updating task status:", error);
@@ -22,4 +25,4 @@ updateTaskStatus.patch("/api/tasks/:id", async (req, res) => {
   }
 });
 
-module.exports = updateTaskStatus;
+module.exports = updateTaskRoute;
